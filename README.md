@@ -1,6 +1,6 @@
 # Mumtaz Ahmad — Portfolio
 
-**Senior Angular Developer | Full-Stack JS Architect | 12+ Years**
+**Senior Angular Developer | Front-End Architect | 15+ Years**
 
 🚀 **Live:** [ui-mumtaz.github.io/portfolio](https://ui-mumtaz.github.io/portfolio/)
 
@@ -8,7 +8,7 @@
 
 ## About
 
-Interactive portfolio showcasing 12+ years of experience in enterprise-grade Angular applications, full-stack JavaScript development, and frontend architecture.
+Interactive portfolio showcasing 15+ years of experience in enterprise-grade Angular applications, full-stack JavaScript development, and frontend architecture.
 
 ## Tech Expertise
 
