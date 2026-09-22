@@ -2,7 +2,7 @@
 
 **Senior Angular Developer | Full-Stack JS Architect | 12+ Years**
 
-🚀 **Live:** [mumtazahmadui.github.io/portfolio](https://mumtazahmadui.github.io/portfolio)
+🚀 **Live:** [ui-mumtaz.github.io/portfolio](https://ui-mumtaz.github.io/portfolio/)
 
 ---
 
@@ -28,7 +28,7 @@ Retail & E-commerce · Gaming & Entertainment · Telecom & Enterprise
 - 📧 Email: mumtazahmad2004@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/mumtazahmad](https://linkedin.com/in/mumtazahmad)
 - 🟢 Upwork: [upwork.com/freelancers/buildwithangular](https://upwork.com/freelancers/buildwithangular)
-- 🌐 Portfolio: [mumtazahmadui.github.io/portfolio](https://mumtazahmadui.github.io/portfolio)
+- 🌐 Portfolio: [ui-mumtaz.github.io/portfolio](https://ui-mumtaz.github.io/portfolio/)
 
 ---
 
