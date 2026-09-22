@@ -1,0 +1,182 @@
+/* ==========================================================================
+   animations.css
+
+   Port of the reference site's motion vocabulary (tntce.com runs Elementor +
+   ElementsKit):
+     - fadeInUp / fadeInDown / fadeInLeft / fadeInRight entrance animations,
+       gated by an `elementor-invisible` class that is removed once the element
+       enters the viewport. One-shot: never replayed on scroll-back.
+     - jarallax parallax backgrounds + Elementor Pro motion-fx
+       (scroll-linked translate / scale / opacity).
+     - e-animation-grow / e-animation-shrink hover transforms.
+
+   IMPORTANT: the hidden state hangs off `.is-hidden`, which is applied by
+   reveal.js at runtime — never by CSS alone. With JS off or broken every
+   element stays visible.
+   ========================================================================== */
+
+[data-reveal] {
+  transition: opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-hidden {
+  opacity: 0;
+}
+
+[data-reveal="up"].is-hidden {
+  transform: translate3d(0, 40px, 0);
+}
+
+[data-reveal="down"].is-hidden {
+  transform: translate3d(0, -40px, 0);
+}
+
+[data-reveal="left"].is-hidden {
+  transform: translate3d(-44px, 0, 0);
+}
+
+[data-reveal="right"].is-hidden {
+  transform: translate3d(44px, 0, 0);
+}
+
+[data-reveal="zoom"].is-hidden {
+  transform: scale(0.92);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* transform/opacity are only needed while animating; drop the hint after */
+[data-reveal].is-revealed {
+  will-change: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Hover transforms — Elementor's e-animation-grow / e-animation-shrink
+   -------------------------------------------------------------------------- */
+
+.hover-grow {
+  transition: transform var(--dur-hover) var(--ease-out);
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.hover-shrink {
+  transition: transform var(--dur-hover) var(--ease-out);
+}
+
+.hover-shrink:hover {
+  transform: scale(0.95);
+}
+
+/* --------------------------------------------------------------------------
+   Ambient keyframes
+   -------------------------------------------------------------------------- */
+
+/* Parallax is driven through a custom property, not a direct inline transform.
+   CSS animations sit ABOVE inline styles in the cascade, so an element with
+   both `anim-drift` and `data-parallax` would have its inline transform
+   silently overridden by the keyframes. Composing through --parallax-y inside
+   the keyframes lets the two effects stack instead of fighting. */
+[data-parallax] {
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, calc(var(--parallax-y, 0px) - 22px), 0) scale(1.04);
+  }
+}
+
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(237, 32, 36, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(237, 32, 36, 0);
+  }
+}
+
+/* The -50% X must be repeated in every keyframe: the toast is centred with
+   translateX(-50%), and an animated `transform` replaces that value wholesale
+   rather than adding to it. */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.anim-drift {
+  animation: drift 14s var(--ease-in-out) infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion — show everything, move nothing.
+   reveal.js and parallax.js also check matchMedia and no-op, so this is the
+   belt to their braces.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  [data-reveal].is-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* !important is needed here: motion-fx writes opacity/transform inline */
+  [data-parallax],
+  [data-motion-fx] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .hover-grow:hover,
+  .hover-shrink:hover {
+    transform: none;
+  }
+}

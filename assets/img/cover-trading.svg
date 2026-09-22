@@ -1,0 +1,159 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 675"
+  width="1200"
+  height="675"
+  role="img"
+  aria-label="Nx monorepo dependency graph: two deployable apps sharing eleven libraries, above a trading dashboard chart"
+>
+  <defs>
+    <linearGradient id="t-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#161616" />
+      <stop offset="1" stop-color="#0b0b0b" />
+    </linearGradient>
+    <radialGradient id="t-glow" cx="0.82" cy="0.08" r="0.85">
+      <stop offset="0" stop-color="#ed2024" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#ed2024" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="t-dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.3" cy="1.3" r="1.3" fill="#ffffff" fill-opacity="0.05" />
+    </pattern>
+    <linearGradient id="t-area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ed2024" stop-opacity="0.34" />
+      <stop offset="1" stop-color="#ed2024" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#t-bg)" />
+  <rect width="1200" height="675" fill="url(#t-dots)" />
+  <rect width="1200" height="675" fill="url(#t-glow)" />
+
+  <g
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    fill="#ffffff"
+  >
+    <!-- kicker -->
+    <rect x="90" y="52" width="44" height="3" rx="1.5" fill="#ed2024" />
+    <text
+      x="90"
+      y="84"
+      font-size="13"
+      font-weight="700"
+      letter-spacing="3.2"
+      fill="#ff6b6e"
+    >NX MONOREPO</text>
+    <text
+      x="1110"
+      y="84"
+      font-size="13"
+      font-weight="600"
+      letter-spacing="1.4"
+      fill="#8a8a8a"
+      text-anchor="end"
+    >2 apps · 11 libs</text>
+
+    <!-- deployable apps -->
+    <g>
+      <rect x="196" y="116" width="360" height="58" rx="10" fill="#1f1f1f" stroke="#ed2024" stroke-width="1.6" />
+      <circle cx="228" cy="145" r="5" fill="#ed2024" />
+      <text x="248" y="151" font-size="17" font-weight="600">rfo-bs-ui</text>
+      <text x="536" y="150" font-size="12" letter-spacing="1.6" fill="#8a8a8a" text-anchor="end">BUYSIDE</text>
+    </g>
+    <g>
+      <rect x="644" y="116" width="360" height="58" rx="10" fill="#1f1f1f" stroke="#ed2024" stroke-width="1.6" />
+      <circle cx="676" cy="145" r="5" fill="#ed2024" />
+      <text x="696" y="151" font-size="17" font-weight="600">rfo-ss-ui</text>
+      <text x="984" y="150" font-size="12" letter-spacing="1.6" fill="#8a8a8a" text-anchor="end">SELLSIDE</text>
+    </g>
+
+    <!-- shared bus -->
+    <g stroke="#3a3a3a" stroke-width="1.5" fill="none">
+      <path d="M376 174 V210" />
+      <path d="M824 174 V210" />
+      <path d="M164 210 H1034" stroke="#4a4a4a" />
+      <path d="M164 210 V244" />
+      <path d="M338 210 V244" />
+      <path d="M512 210 V244" />
+      <path d="M686 210 V244" />
+      <path d="M860 210 V244" />
+      <path d="M1034 210 V244" />
+    </g>
+    <circle cx="376" cy="210" r="4" fill="#ed2024" />
+    <circle cx="824" cy="210" r="4" fill="#ed2024" />
+
+    <!-- shared libraries, row 1 -->
+    <g font-size="14" font-weight="600">
+      <rect x="90" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="164" y="272" text-anchor="middle">ui-kit</text>
+      <rect x="264" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="338" y="272" text-anchor="middle">core</text>
+      <rect x="438" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="512" y="272" text-anchor="middle">wizard</text>
+      <rect x="612" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="686" y="272" text-anchor="middle">workflow</text>
+      <rect x="786" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="860" y="272" text-anchor="middle">common</text>
+      <rect x="960" y="244" width="148" height="46" rx="8" fill="#1a1a1a" stroke="#333333" />
+      <text x="1034" y="272" text-anchor="middle">shared-styles</text>
+    </g>
+
+    <!-- shared libraries, row 2 -->
+    <g font-size="13" font-weight="500" fill="#c8c8c8">
+      <rect x="90" y="306" width="196" height="40" rx="8" fill="#151515" stroke="#2b2b2b" />
+      <text x="188" y="331" text-anchor="middle">shared-assets</text>
+      <rect x="302" y="306" width="196" height="40" rx="8" fill="#151515" stroke="#2b2b2b" />
+      <text x="400" y="331" text-anchor="middle">entity-drill-down</text>
+      <rect x="514" y="306" width="252" height="40" rx="8" fill="#151515" stroke="#2b2b2b" />
+      <text x="640" y="331" text-anchor="middle">cp-product-relationship</text>
+      <rect x="782" y="306" width="156" height="40" rx="8" fill="#151515" stroke="#2b2b2b" />
+      <text x="860" y="331" text-anchor="middle">rfo-buyside</text>
+      <rect x="954" y="306" width="156" height="40" rx="8" fill="#151515" stroke="#2b2b2b" />
+      <text x="1032" y="331" text-anchor="middle">rfo-sellside</text>
+    </g>
+
+    <!-- dashboard panel -->
+    <rect x="90" y="392" width="1020" height="216" rx="12" fill="#121212" stroke="#262626" />
+    <text x="118" y="424" font-size="12" font-weight="700" letter-spacing="2.4" fill="#8a8a8a">HIGHCHARTS DASHBOARD</text>
+
+    <!-- gridlines -->
+    <g stroke="#232323" stroke-width="1">
+      <path d="M118 450 H1082" />
+      <path d="M118 494 H1082" />
+      <path d="M118 538 H1082" />
+      <path d="M118 578 H1082" />
+    </g>
+
+    <!-- area + line series -->
+    <path
+      d="M118 552 L214 522 L310 536 L406 486 L502 500 L598 452 L694 470 L790 430 L886 446 L982 402 L1082 418 L1082 578 L118 578 Z"
+      fill="url(#t-area)"
+    />
+    <path
+      d="M118 552 L214 522 L310 536 L406 486 L502 500 L598 452 L694 470 L790 430 L886 446 L982 402 L1082 418"
+      fill="none"
+      stroke="#ed2024"
+      stroke-width="2.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M118 566 L214 558 L310 546 L406 550 L502 528 L598 534 L694 512 L790 516 L886 494 L982 500 L1082 482"
+      fill="none"
+      stroke="#5a5a5a"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-dasharray="6 5"
+    />
+    <g fill="#ed2024">
+      <circle cx="598" cy="452" r="4" />
+      <circle cx="982" cy="402" r="4" />
+    </g>
+
+    <!-- ngrx / router-store footnote — kept below the plot area so the series
+         line never runs through it -->
+    <g font-size="12" font-weight="600" letter-spacing="1.2" fill="#8a8a8a">
+      <text x="1082" y="598" text-anchor="end">NgRx Store · Effects · Router-Store</text>
+    </g>
+  </g>
+</svg>
