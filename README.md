@@ -45,15 +45,3 @@ src/app/
 ```
 
 Every component is `ChangeDetectionStrategy.OnPush`; the app runs zoneless (`provideZonelessChangeDetection()` in `app.config.ts`), so updates are driven entirely by signals.
-
-## Deployment
-
-Pushing to `master` runs `.github/workflows/deploy.yml`, which builds with `--base-href /portfolio/`, copies `index.html` to `404.html` (so a direct link to any path still serves the app shell), and publishes `dist/portfolio/browser` to GitHub Pages.
-
-To build the same way locally:
-
-```bash
-npx ng build --base-href /portfolio/
-```
-
-The repository must have **Settings → Pages → Source** set to **GitHub Actions** for the workflow's deploy step to publish successfully.
