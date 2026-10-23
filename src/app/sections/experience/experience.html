@@ -1,0 +1,24 @@
+<div class="container">
+  <app-section-head appReveal="up" [eyebrow]="experience.eyebrow" [heading]="experience.heading" />
+
+  <ol role="list" class="timeline">
+    @for (item of experience.items; track item.date) {
+      <li class="tl" [appReveal]="item.reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <p class="tl__date">{{ item.date }}</p>
+        <h3 class="tl__role">{{ item.role }}</h3>
+        <p class="tl__org">
+          {{ item.org }}
+          @if (item.via) {
+            <span>{{ item.via }}</span>
+          }
+        </p>
+        <ul role="list" class="bullets">
+          @for (bullet of item.bullets; track $index) {
+            <li><app-rich-text [segments]="bullet" /></li>
+          }
+        </ul>
+      </li>
+    }
+  </ol>
+</div>

@@ -1,0 +1,62 @@
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: var(--space-5);
+}
+
+.project {
+  position: relative;
+  padding: var(--space-6) var(--space-5);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.project__media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin-bottom: var(--space-5);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  object-fit: cover;
+  transition: border-color var(--dur-hover) var(--ease-out), transform var(--dur-hover) var(--ease-out);
+}
+
+.project:hover .project__media {
+  border-color: rgba(237, 32, 36, 0.45);
+  transform: scale(1.012);
+}
+
+.project__index {
+  margin: 0 0 var(--space-4);
+  color: var(--border-strong);
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.project__title {
+  margin-bottom: var(--space-4);
+}
+
+.project__sub {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--accent-soft);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project .chips {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}

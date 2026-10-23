@@ -1,0 +1,1 @@
+@for (seg of segments(); track $index) {@if (seg.bold) {<strong>{{ seg.text }}</strong>} @else if (seg.code) {<code>{{ seg.text }}</code>} @else if (seg.accent) {<span class="text-accent">{{ seg.text }}</span>} @else {{{ seg.text }}}@if (seg.breakAfter) {<br class="br-lg" />}}

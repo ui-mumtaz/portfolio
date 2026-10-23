@@ -1,0 +1,13 @@
+<div class="container">
+  <app-section-head appReveal="up" [eyebrow]="education.eyebrow" [heading]="education.heading" />
+
+  <ul role="list" class="edu" appRevealStagger="110">
+    @for (item of education.items; track item.degree) {
+      <li class="edu__item" appReveal="up">
+        <p class="edu__year">{{ item.year }}</p>
+        <h3 class="edu__degree">{{ item.degree }}</h3>
+        <p class="edu__org">{{ item.org }}</p>
+      </li>
+    }
+  </ul>
+</div>

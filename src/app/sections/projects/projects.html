@@ -1,0 +1,35 @@
+<div class="container">
+  <app-section-head appReveal="up" [eyebrow]="projects.eyebrow" [heading]="projects.heading" />
+
+  <ul role="list" class="projects">
+    @for (item of projects.items; track item.title) {
+      <li class="project hover-lift" [appReveal]="item.reveal">
+        <img
+          class="project__media"
+          [ngSrc]="item.image"
+          alt=""
+          loading="lazy"
+          width="1200"
+          height="675"
+        />
+        <p class="project__index" aria-hidden="true">{{ item.index }}</p>
+        <h3 class="project__title">
+          {{ item.title }}
+          @if (item.subtitle) {
+            <span class="project__sub">{{ item.subtitle }}</span>
+          }
+        </h3>
+        <ul role="list" class="bullets">
+          @for (bullet of item.bullets; track $index) {
+            <li><app-rich-text [segments]="bullet" /></li>
+          }
+        </ul>
+        <ul role="list" class="chips chips--sm">
+          @for (tech of item.tech; track tech) {
+            <app-chip sm>{{ tech }}</app-chip>
+          }
+        </ul>
+      </li>
+    }
+  </ul>
+</div>

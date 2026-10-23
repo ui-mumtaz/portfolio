@@ -1,0 +1,11 @@
+<a
+  class="btn"
+  [class.btn--primary]="variant() === 'primary'"
+  [class.btn--ghost]="variant() === 'ghost'"
+  [href]="href()"
+  [attr.download]="download()"
+  [attr.target]="external() ? '_blank' : null"
+  [attr.rel]="external() ? 'noopener noreferrer' : null"
+>
+  <ng-content></ng-content>
+</a>

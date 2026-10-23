@@ -1,0 +1,36 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--space-5);
+}
+
+.card {
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: var(--space-4);
+  background: var(--accent-dim);
+  border-radius: var(--radius-sm);
+  color: var(--accent-hover);
+}
+
+.card__icon app-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.card__title {
+  margin-bottom: var(--space-3);
+}
+
+.card p {
+  font-size: var(--fs-sm);
+}

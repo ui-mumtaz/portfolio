@@ -1,0 +1,16 @@
+<div class="container">
+  <app-section-head appReveal="up" [eyebrow]="skills.eyebrow" [heading]="skills.heading" [lead]="skills.lead" />
+
+  <div class="skills">
+    @for (group of skills.groups; track group.label; let i = $index) {
+      <div class="skills__group" appReveal="up" [revealDelay]="i * 80">
+        <h3 class="skills__label">{{ group.label }}</h3>
+        <ul role="list" class="chips" appRevealStagger="45">
+          @for (chip of group.chips; track chip) {
+            <app-chip [hot]="group.highlight" appReveal="zoom">{{ chip }}</app-chip>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>

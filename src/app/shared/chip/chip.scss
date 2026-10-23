@@ -1,0 +1,29 @@
+:host {
+  display: inline-flex;
+  padding: 0.45rem 0.9rem;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  transition: border-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out),
+    transform var(--dur-hover) var(--ease-out);
+}
+
+:host(:hover) {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+:host(.chip--hot) {
+  background: var(--accent-dim);
+  border-color: rgba(237, 32, 36, 0.4);
+  color: #ffb3b5;
+}
+
+:host(.chip--sm) {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+}

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="section__head" appReveal="up">
+    <p class="eyebrow">{{ process.eyebrow }}</p>
+    <h2 style="max-width: 15.25em"><app-rich-text [segments]="process.heading" /></h2>
+  </div>
+
+  <ul role="list" class="proc-grid" appRevealStagger="110">
+    @for (step of process.steps; track step.step) {
+      <li class="proc" appReveal="up">
+        <div class="proc-head">
+          <span class="proc-step">{{ step.step }}</span>
+          <span class="proc-line" aria-hidden="true"></span>
+          <span class="proc-dot" aria-hidden="true"></span>
+        </div>
+        <h3>{{ step.title }}</h3>
+        <p><app-rich-text [segments]="step.body" /></p>
+        <div class="proc-foot">
+          <h4>{{ step.footTitle }}</h4>
+          <p><app-rich-text [segments]="step.footBody" /></p>
+        </div>
+      </li>
+    }
+  </ul>
+</div>

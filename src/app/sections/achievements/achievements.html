@@ -1,0 +1,15 @@
+<div class="container">
+  <app-section-head appReveal="up" [eyebrow]="achievements.eyebrow" [heading]="achievements.heading" />
+
+  <ul role="list" class="cards" appRevealStagger="110">
+    @for (item of achievements.items; track item.title) {
+      <li class="card hover-lift" appReveal="up">
+        <span class="card__icon" aria-hidden="true">
+          <app-icon [name]="item.icon" />
+        </span>
+        <h3 class="card__title">{{ item.title }}</h3>
+        <p><app-rich-text [segments]="item.body" /></p>
+      </li>
+    }
+  </ul>
+</div>

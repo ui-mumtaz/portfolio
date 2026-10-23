@@ -1,0 +1,21 @@
+<div class="container about">
+  <div class="about__head" appReveal="left">
+    <p class="eyebrow">{{ about.eyebrow }}</p>
+    <h2><app-rich-text [segments]="about.heading" /></h2>
+  </div>
+
+  <div class="about__body" appReveal="right" [revealDelay]="120">
+    @for (paragraph of about.paragraphs; track $index) {
+      <p [class.lead]="$index === 0"><app-rich-text [segments]="paragraph" /></p>
+    }
+
+    <ul role="list" class="about__meta">
+      @for (item of about.meta; track item.text) {
+        <li>
+          <app-icon [name]="item.icon" />
+          {{ item.text }}
+        </li>
+      }
+    </ul>
+  </div>
+</div>

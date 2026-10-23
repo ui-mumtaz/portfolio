@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="contact" appReveal="zoom">
+    <div class="contact__head">
+      <p class="eyebrow">{{ contact.eyebrow }}</p>
+      <h2><app-rich-text [segments]="contact.heading" /></h2>
+      <p class="lead">{{ contact.lead }}</p>
+      <div class="btn-row">
+        <app-button variant="ghost" [href]="profile.resumeFile" [download]="profile.resumeFile">
+          <app-icon name="download" />
+          {{ contact.resumeCta }}
+        </app-button>
+      </div>
+    </div>
+
+    <ul role="list" class="contact__list">
+      @for (item of contact.items; track item.label) {
+        <li class="contact__row" [class.contact__row--static]="item.static">
+          @if (item.static) {
+            <span class="contact__link">
+              <span class="contact__icon" aria-hidden="true">
+                <app-icon [name]="item.icon" />
+              </span>
+              <span class="contact__text">
+                <span class="contact__label">{{ item.label }}</span>
+                <span class="contact__value">{{ item.value }}</span>
+              </span>
+            </span>
+          } @else {
+            <a
+              class="contact__link"
+              [href]="item.href"
+              [attr.target]="item.external ? '_blank' : null"
+              [attr.rel]="item.external ? 'noopener noreferrer' : null"
+            >
+              <span class="contact__icon" aria-hidden="true">
+                <app-icon [name]="item.icon" />
+              </span>
+              <span class="contact__text">
+                <span class="contact__label">{{ item.label }}</span>
+                <span class="contact__value">{{ item.value }}</span>
+              </span>
+            </a>
+          }
+
+          @if (item.copyValue) {
+            <button
+              class="contact__copy"
+              type="button"
+              [class.is-copied]="copiedLabel() === item.label"
+              [attr.aria-label]="'Copy ' + item.label.toLowerCase() + ' to clipboard'"
+              (click)="onCopy(item)"
+            >
+              <app-icon [name]="copiedLabel() === item.label ? 'check' : 'copy'" />
+            </button>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</div>

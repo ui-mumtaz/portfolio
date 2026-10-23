@@ -1,0 +1,66 @@
+<div class="hero__art" aria-hidden="true">
+  <span
+    class="hero__banner"
+    [appParallax]="0.1"
+    style="background-image: url('assets/img/hero-banner.jpg')"
+  ></span>
+  <span class="hero__glow hero__glow--a anim-drift" [appParallax]="0.18"></span>
+  <span class="hero__glow hero__glow--b anim-drift" [appParallax]="-0.12"></span>
+  <span class="hero__grid" [appParallax]="0.06"></span>
+</div>
+
+<div class="hero__inner container" appMotionFx="fade-out">
+  <p class="eyebrow" appReveal="up" [revealDelay]="0">{{ hero.eyebrow }}</p>
+
+  <h1 class="hero__title" appReveal="up" [revealDelay]="90">
+    <app-rich-text [segments]="hero.title" />
+  </h1>
+
+  <p class="hero__lead lead" appReveal="up" [revealDelay]="180">
+    <app-rich-text [segments]="hero.lead" />
+  </p>
+
+  <div class="btn-row" appReveal="up" [revealDelay]="270">
+    <app-button variant="primary" href="#contact">
+      {{ hero.primaryCta }}
+      <app-icon name="arrow" />
+    </app-button>
+    <app-button variant="ghost" [href]="profile.resumeFile" [download]="profile.resumeFile">
+      <app-icon name="download" />
+      {{ hero.resumeCta }}
+    </app-button>
+  </div>
+
+  <ul role="list" class="hero__stats" appRevealStagger="90">
+    @for (stat of hero.stats; track $index) {
+      <li class="stat" [class.stat--feature]="stat.feature" appReveal="up" [revealDelay]="$index === 0 ? 380 : undefined">
+        @switch (stat.kind) {
+          @case ('number') {
+            <span class="stat__num"
+              ><span [appCountUp]="asNumber(stat.value)">{{ stat.value }}</span
+              ><span class="stat__plus">{{ stat.suffix }}</span></span
+            >
+            <span class="stat__label">{{ stat.label }}</span>
+          }
+          @case ('text') {
+            <span class="stat__num">{{ stat.text }}</span>
+            <span class="stat__label">{{ stat.label }}</span>
+          }
+          @case ('stack') {
+            <span class="stat__num stat__num--xs">{{ stat.text }}</span>
+            <span class="stat__stack" role="img" [attr.aria-label]="stat.stackLabel">
+              @for (icon of stat.stackIcons; track icon) {
+                <app-icon class="stat__stack-icon" [name]="icon" />
+              }
+            </span>
+          }
+        }
+      </li>
+    }
+  </ul>
+</div>
+
+<span class="hero__hint" aria-hidden="true">
+  <span class="hero__hint-line"></span>
+  {{ hero.scrollHint }}
+</span>

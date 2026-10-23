@@ -1,0 +1,45 @@
+<div class="nav__inner container">
+  <a class="brand" href="#top" [attr.aria-label]="nav.brandName + ' — back to top'">
+    <span class="brand__mark" aria-hidden="true">{{ nav.brandInitials }}</span>
+    <span class="brand__text">
+      <span class="brand__name">{{ nav.brandName }}</span>
+      <span class="brand__role">{{ nav.brandRole }}</span>
+    </span>
+  </a>
+
+  <button
+    #toggleButton
+    class="nav__toggle"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="nav-menu"
+    [attr.aria-label]="toggleLabel()"
+    (click)="onToggleClick()"
+  >
+    <span class="nav__bars" aria-hidden="true"></span>
+  </button>
+
+  <nav
+    #menuPanel
+    class="nav__menu"
+    id="nav-menu"
+    aria-label="Main"
+    [class.is-open]="menuOpen()"
+    (click)="onMenuClick($event)"
+    (keydown)="onMenuKeydown($event)"
+  >
+    <ul role="list" class="nav__list">
+      @for (link of nav.links; track link.href) {
+        <li>
+          <a class="nav__link" [href]="link.href" [attr.aria-current]="isActive(link.href) ? 'true' : null">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <a class="btn btn--primary nav__cta" href="#contact">
+      {{ nav.cta }}
+      <app-icon name="arrow" />
+    </a>
+  </nav>
+</div>
